@@ -1,0 +1,73 @@
+ESTRUCTURA DE LA BASE DE DATOS
+
+Producto
+_id
+Nombre
+precio
+imagen
+categoria
+stock
+...
+Marca {
+   Nombre
+   Descripcion
+   Logo
+}
+
+Empleado
+_id
+nombre
+apellidos
+direccion
+sueldo
+
+
+Entrada
+_id
+Fecha
+...
+id_emp
+Productos[{
+   id_Producto
+   cantidad
+   precio
+}]
+
+
+Salida
+_id
+Fecha
+...
+id_emp
+Productos[{
+   id_Producto
+   cantidad
+   precio
+}]
+
+COMANDOS DE CREACION
+
+PRODUCTOS:
+------------------------------------------
+db.products.insertOne({nombre:"producto-1",precio:100,imagen:"imagen-1",categoria:"categoria-1",stock:100,marca:{nombre:"marca-1",descripcion:"descripcion-1",logo:"logo-1" } })
+------------------------------------------
+
+ROLES
+------------------------------------------
+db.roles.insertMany([{nombre:"Admin" },{nombre:"User" },{nombre:"Moderator" }])
+------------------------------------------
+
+EMPLEADOS
+------------------------------------------
+db.empleados.insertOne({nombre:"nombre-1",apellidos:"apellidos-1",direccion:"direccion-1",sueldo:100,telefono:"3346739017",imagen:"imagen-1",email:"email-1",password:"password-1",roles:[ObjectId('6408c8dc9dcc5c610f8d8174')] } )
+------------------------------------------
+
+ENTRADAS
+------------------------------------------
+db.entradas.insertOne({id_empleado:ObjectId('6408cc3e9dcc5c610f8d8177'),fecha:new ISODate("2013-01-07"),productos:[{id_producto:ObjectId('6408c6859dcc5c610f8d8173'),cantidad:1,precio:1 }] })
+------------------------------------------
+
+SALIDAS
+------------------------------------------
+db.salidas.insertOne({id_empleado:ObjectId('6408cc3e9dcc5c610f8d8177'),fecha:new ISODate("2013-01-07"),productos:[{id_producto:ObjectId('6408c6859dcc5c610f8d8173'),cantidad:1,precio:1 }] })
+------------------------------------------
